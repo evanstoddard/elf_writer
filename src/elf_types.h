@@ -69,7 +69,10 @@ typedef enum
  */
 typedef struct elf_32_header_t
 {
-    uint32_t magic;
+    union {
+        uint8_t bytes[4];
+        uint32_t word;
+    } magic;
     uint8_t bit_length;
     uint8_t endianness;
     uint8_t version;
